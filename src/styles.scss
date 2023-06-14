@@ -1,20 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap');
 
 $font-weight: (
-    "logo": 700,
-    "title": 700,
-    "subtitle": 700,
+    "logo": 600,
+    "title": 600,
+    "subtitle": 600,
     "text": 300,
-    "menu": 700,
-    "button": 700,
+    "menu": 600,
+    "button": 600,
     "footer": 300
 );
 
 $font-size: (
-    'logo': 2rem,
+    'logo': 3rem,
     'title': (
-        "desktop": 5rem,
+        "desktop": 7rem,
         "tablet": 4rem,
         "mobile": 3rem
     ),
@@ -27,7 +27,7 @@ $font-size: (
         "mobile": 1.6rem
     ),
     'menu': (
-        "desktop": 1.4rem,
+        "desktop": 1.6rem,
         "tablet": 2rem,
         "mobile": 1.8rem
     ),
@@ -68,15 +68,68 @@ $letter-spacing: (
     "button": .02rem
 );
 
-$color-primary: #40E0D0;
+$color-primary: #CC9933;
+$color-secondary: #ffd700;
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
 
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    border: 0;
+    font-size: 62.5%;
+    letter-spacing: map-get($letter-spacing, 'text');
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    text-decoration: none;
+}
+
+img,
+picture,
+svg,
+video {
+    display: block;
 }
 
 body {
-    font-size: 62.5%;
-    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+p {
+    margin-block: 0;
+}
+
+.btn {
+    font-weight: map-get($font-weight, 'button');
+    font-size: map-get($font-size, 'button', 'desktop');
+    line-height: map-get($line-height, 'button', 'desktop');
+    letter-spacing: map-get($letter-spacing, 'button');
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.2rem 2rem;
+    border-radius: 3rem;
+    display: block;
+    width: fit-content;
+}
+
+.btn_primary {
+    color: white;
+    background-color: $color-primary;
+    border: .2rem solid $color-primary;
+
+    &:hover {
+        color: $color-primary;
+        background-color: transparent;
+    }
 }

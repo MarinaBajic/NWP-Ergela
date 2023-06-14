@@ -1,5 +1,38 @@
+@use 'src/styles' as *;
+
 .hero {
     background-image: url("../../../assets/hero.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+    height: 100dvh;
+}
+
+.hero__shadow {
+    height: 100%;
+    background: linear-gradient(180deg, rgba(51, 51, 51, 0.6) 50%, rgba(51, 51, 51, 0.3) 100%);
+}
+
+.main-container {
+    margin: 0 auto;
+    width: 80%;
+}
+
+.hero__heading {
+    height: calc(100dvh - 10rem);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.heading_primary {
+    color: white;
+    font-size: map-get($font-size, 'title', 'desktop');
+}
+
+.hero__desc {
+    color: white;
+    font-size: map-get($font-size, 'subtitle', 'desktop');
+    margin-bottom: 4rem;
 }
