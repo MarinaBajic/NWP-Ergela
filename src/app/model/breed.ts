@@ -1,9 +1,9 @@
 export enum Breed {
-    'Arabian',
-    'Friesian',
-    'Mustang',
-    'Clydesdale',
-    'Lipizzan',
-    'Icelandic',
-    'New Forest'
+    Arabian = 'Arabian',
+    Friesian = 'Friesian',
+    Mustang = 'Mustang',
+    Clydesdale = 'Clydesdale',
+    Lipizzan = 'Lipizzan',
+    Icelandic = 'Icelandic',
+    NewForest = 'New Forest'
 }

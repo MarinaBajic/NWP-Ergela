@@ -12,11 +12,6 @@
     background: linear-gradient(180deg, rgba(51, 51, 51, 0.6) 50%, rgba(51, 51, 51, 0.3) 100%);
 }
 
-.main-container {
-    margin: 0 auto;
-    width: 80%;
-}
-
 .hero__heading {
     height: calc(100dvh - 10rem);
     display: flex;
@@ -26,13 +21,13 @@
     gap: 2rem;
 }
 
-.heading_primary {
+.header_primary {
     color: white;
     font-size: map-get($font-size, 'title', 'desktop');
 }
 
 .hero__desc {
     color: white;
-    font-size: map-get($font-size, 'subtitle', 'desktop');
+    font-size: 2.5rem;
     margin-bottom: 4rem;
 }

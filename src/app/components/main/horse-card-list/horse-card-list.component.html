@@ -1,1 +1,12 @@
-<p>horse-card-list works!</p>
+<section id="horses" class="main-container section">
+    <h3 class="heading_secondary">Meet Our Horses</h3>
+    <p class="text text_dark">Welcome to our horse ranch, where majestic beauty meets unparalleled grace. Allow us to introduce you to the incredible
+    horses that call this place home. Each of these magnificent creatures possesses its own unique personality and charm,
+    ready to forge an everlasting connection with anyone who crosses their path. Here are a few of the remarkable horses
+    that make our ranch come alive.</p>
+    <div class="card-list">
+        <ng-container *ngFor="let horse of horses">
+            <app-horse-card [horse]="horse"></app-horse-card>
+        </ng-container>
+    </div>
+</section>

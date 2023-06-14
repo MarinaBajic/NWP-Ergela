@@ -22,7 +22,7 @@ import { HorseCardListComponent } from './components/main/horse-card-list/horse-
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    // AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

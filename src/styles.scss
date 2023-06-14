@@ -19,7 +19,7 @@ $font-size: (
         "mobile": 3rem
     ),
     'subtitle': (
-        "desktop": 1.6rem,
+        "desktop": 4rem,
         "mobile": 1.4rem
     ),
     'text': (
@@ -70,6 +70,8 @@ $letter-spacing: (
 
 $color-primary: #CC9933;
 $color-secondary: #ffd700;
+$color-text-dark: #333;
+$color-text-light: #fff;
 
 *,
 *::before,
@@ -110,6 +112,11 @@ p {
     margin-block: 0;
 }
 
+.main-container {
+    margin: 0 auto;
+    width: 80%;
+}
+
 .btn {
     font-weight: map-get($font-weight, 'button');
     font-size: map-get($font-size, 'button', 'desktop');
@@ -118,18 +125,88 @@ p {
     text-transform: uppercase;
     text-decoration: none;
     padding: 1.2rem 2rem;
-    border-radius: 3rem;
+    border-radius: .5rem;
     display: block;
     width: fit-content;
 }
 
 .btn_primary {
-    color: white;
-    background-color: $color-primary;
-    border: .2rem solid $color-primary;
+    color: $color-primary;
+    background-color: transparent;
+    border: .3rem solid $color-primary;
+    
+    &:hover {
+        color: white;
+        background-color: $color-primary;
+    }
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background-color: #CC9933;
+    width: 25rem;
+    height: 20rem;
+    border-radius: .5rem;
+    padding: 3rem 2rem;
 
     &:hover {
-        color: $color-primary;
-        background-color: transparent;
+        border: .5rem solid $color-primary;
+        padding: 0;
     }
+}
+
+
+.section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 10rem;
+}
+
+.card-list {
+    display: flex;
+    gap: 3rem;
+}
+
+.card__img {
+    border-radius: .5rem;
+    object-fit: cover;
+    height: 100%;
+}
+
+.card__header {
+    font-weight: map-get($font-weight, 'subtitle');
+    font-size: 2.7rem;
+    color: $color-text-light;
+}
+
+.card__info {
+    font-weight: map-get($font-weight, 'text');
+    font-size: map-get($font-size, 'text', 'desktop');
+    color: $color-text-light;
+}
+
+.card__info_important {
+    font-weight: map-get($font-weight, 'subtitle');
+    padding-bottom: 1rem;
+    border-bottom: .1rem solid $color-text-light;
+}
+
+.heading_secondary {
+    font-weight: map-get($font-weight, 'subtitle');
+    font-size: map-get($font-size, 'subtitle', 'desktop');
+    color: $color-text-dark;
+}
+
+.text {
+    font-weight: map-get($font-weight, 'text');
+    font-size: map-get($font-size, 'text', 'desktop');
+    text-align: justify;
+}
+
+.text_dark {
+    color: $color-text-dark;
 }
