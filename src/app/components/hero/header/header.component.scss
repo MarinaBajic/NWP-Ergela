@@ -1,0 +1,23 @@
+@use 'src/styles' as *;
+
+.header {
+
+}
+
+.logo-wrapper {
+    display: flex;
+    gap: .5rem;
+    align-items: center;
+}
+
+.logo-img {
+    width: 2rem;
+}
+
+.logo-text {
+    font-family: 'Cinzel', serif;
+    font-size: map-get($font-size, 'logo');
+    font-weight: map-get($font-weight, 'logo');
+    text-transform: uppercase;
+    color: white;
+}
