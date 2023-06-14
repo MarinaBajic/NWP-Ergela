@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Breed } from 'src/app/model/breed';
 import { Horse } from 'src/app/model/horse';
+import { HorseService } from 'src/app/services/horse.service';
 
 @Component({
   selector: 'app-horse-card-list',
@@ -10,10 +11,25 @@ import { Horse } from 'src/app/model/horse';
 export class HorseCardListComponent {
   horses: Array<Horse>;
 
-  constructor() {
-    this.horses = [
-      new Horse(1, 'assets/horse1.jpg', Date.now(), 'Thunderbolt', 'Maestro Magelan I', 'm', Breed.Clydesdale),
-      new Horse(2, 'assets/horse2.jpg', Date.now(), 'Blossom', 'Maestoso II', 'f', Breed.Mustang)
-    ]
+  constructor(private horseService: HorseService) {
+    this.horses = horseService.getHorses();
+    // this.showHorses();
+
+    console.log(this.horses);
   }
+
+  // showHorses() {
+  //   this.horseService.getHorsesFile()
+  //     .subscribe((data: Horse) => this.horses.push(
+  //       new Horse(
+  //         data.getId(),
+  //         data.getImageUrl(),
+  //         data.getDateOfBirth(),
+  //         data.getShortName(),
+  //         data.getFullName(),
+  //         data.getGender(),
+  //         data.getBreed()
+  //       )
+  //     ));
+  // }
 }
