@@ -1,9 +1,20 @@
-@use 'src/styles';
+@use 'src/styles' as *;
 
 .nav {
-
+    display: flex;
+    align-items: center;
+    // gap: 2rem;
 }
 
 .menu-item {
-    
+    font-size: map-get($font-size, 'menu', 'desktop');
+    font-weight: map-get($font-weight, 'menu');
+    color: white;
+    text-decoration: none;
+    border-bottom: .3rem solid transparent;
+    padding: .5rem 1rem;
+
+    &:hover {
+        border-bottom: .3rem solid white;
+    }
 }

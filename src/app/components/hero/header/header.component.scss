@@ -1,7 +1,9 @@
 @use 'src/styles' as *;
 
 .header {
-
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 2rem;
 }
 
 .logo-wrapper {
