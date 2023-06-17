@@ -1,0 +1,63 @@
+<p *ngIf="message" class="text text_dark">{{message}}</p>
+<form class="form" [formGroup]="horseForm" (ngSubmit)="addHorse(horseForm)">
+    <p class="form__heading">Add a New Horse</p>
+    <p *ngIf="!valid" class="text text_error">Please fill in all fields!</p>
+    <div class="form__input">
+        <label class="text text_dark" for="shortName">Short Name</label>
+        <input id="shortName" type="text" formControlName="shortName">
+        <ng-container
+            *ngIf="horseForm.get('shortName')?.invalid && (horseForm.get('shortName')?.touched || horseForm.get('shortName')?.dirty)">
+            <p *ngIf="horseForm.get('shortName')?.errors?.['required']" class="text text_error">This field is required.
+            </p>
+            <p *ngIf="horseForm.get('shortName')?.errors?.['minlength']" class="text text_error">Short name should be at
+                least 2 characters long.</p>
+            <p *ngIf="horseForm.get('shortName')?.errors?.['maxlength']" class="text text_error">Short name cannot be
+                longer than 10 characters.</p>
+        </ng-container>
+    </div>
+    <div class="form__input">
+        <label class="text text_dark" for="fullName">Full Name</label>
+        <input id="fullName" type="text" formControlName="fullName">
+        <ng-container
+            *ngIf="horseForm.get('fullName')?.invalid && (horseForm.get('fullName')?.touched || horseForm.get('fullName')?.dirty)">
+            <p *ngIf="horseForm.get('fullName')?.errors?.['required']" class="text text_error">This field is required.
+            </p>
+            <p *ngIf="horseForm.get('fullName')?.errors?.['minlength']" class="text text_error">Full name should be at
+                least 4 characters long.</p>
+            <p *ngIf="horseForm.get('fullName')?.errors?.['maxlength']" class="text text_error">Full name cannot be
+                longer than 20 characters.</p>
+        </ng-container>
+    </div>
+    <div class="form__input">
+        <label class="text text_dark" for="dateOfBirth">Date of Birth</label>
+        <input id="dateOfBirth" type="date" formControlName="dateOfBirth">
+        <p *ngIf="horseForm.get('dateOfBirth')?.invalid && (horseForm.get('dateOfBirth')?.touched || horseForm.get('dateOfBirth')?.dirty)"
+            class="text text_error">This field is required.</p>
+    </div>
+    <div class="form__input">
+        <label class="text text_dark" for="breed">Breed</label>
+        <select name="breed" id="breed" formControlName="breed">
+            <option *ngFor="let breed of breeds" [ngValue]="breed">{{breed}}</option>
+        </select>
+        <p *ngIf="horseForm.get('breed')?.invalid && (horseForm.get('breed')?.touched || horseForm.get('breed')?.dirty)"
+            class="text text_error">This field is required.</p>
+    </div>
+    <div class="form__input">
+        <label class="text text_dark" for="gender">Gender</label>
+        <div class="form__radio">
+            <input id="gender" type="radio" formControlName="gender" value="female">
+            <p class="text text_dark">Female</p>
+        </div>
+        <div class="form__radio">
+            <input id="gender" type="radio" formControlName="gender" value="male">
+            <p class="text text_dark">Male</p>
+        </div>
+        <p *ngIf="horseForm.get('gender')?.invalid && (horseForm.get('gender')?.touched || horseForm.get('gender')?.dirty)"
+            class="text text_error">This field is required.</p>
+    </div>
+    <div class="form__buttons">
+        <button class="btn btn_secondary" type="submit">Add</button>
+        <button class="btn btn_tertiary" type="reset" (click)="onHideForm()">Cancel</button>
+    </div>
+    <p *ngIf="submited" class="text text_dark"> {{horseForm.value | json}}</p>
+</form>

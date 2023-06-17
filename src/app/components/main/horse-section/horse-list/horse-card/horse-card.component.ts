@@ -9,18 +9,15 @@ import { Horse } from 'src/app/model/horse';
 })
 export class HorseCardComponent {
   @Input() horse: Horse;
-
+  // @Output() deleteHorse: EventEmitter<Horse>;
   hover: boolean;
 
-  @Output() deleteHorse: EventEmitter<Horse>;
-
   constructor() {
-    this.deleteHorse = new EventEmitter();
+    // this.deleteHorse = new EventEmitter();
   }
 
   toggleHover() {
     this.hover = !this.hover;
-    console.log("rgv");
   }
 
   get id(): number {

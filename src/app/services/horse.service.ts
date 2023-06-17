@@ -10,25 +10,13 @@ import { catchError, retry } from 'rxjs/operators';
 })
 export class HorseService {
   private url: string = 'assets/data/horses.json';
-  private horses: any = [];
+  private horses: Horse[];
 
   constructor(private http: HttpClient) {
-    // this.http.get(this.url).subscribe(res => {
-    //   this.horses = res;
-    // })
-    // console.log(this.horses);
-    // this.horses = [
-    //   new Horse(1, 'assets/images/horse1.jpg', Date.now(), 'Thunderbolt', 'Maestro Magelan I', 'm', Breed.Clydesdale),
-    //   new Horse(2, 'assets/images/horse2.jpg', Date.now(), 'Blossom', 'Maestoso II', 'f', Breed.Mustang)
-    // ]
-
-    this.getHorsesFile();
-  }
-
-  getHorsesFile() {
-    return this.http.get<Horse>(this.url).subscribe(res => {
-      this.horses = res;
-    });
+    this.horses = [
+      new Horse(1, 'assets/images/horse1.jpg', Date.now(), 'Thunderbolt', 'Maestro Magelan I', 'male', Breed.Clydesdale),
+      new Horse(2, 'assets/images/horse2.jpg', Date.now(), 'Blossom', 'Maestoso II', 'female', Breed.Mustang)
+    ]
   }
 
   getHorses(): Horse[] {
@@ -36,7 +24,7 @@ export class HorseService {
   }
 
   addHorse(horse: Horse) {
-    let foundHorse = this.horses.find((each: { getId: () => number; }) => each.getId() === horse.getId());
+    let foundHorse = this.horses.find(each => each.getId() === horse.getId());
     if (foundHorse) {
       return false;
     }

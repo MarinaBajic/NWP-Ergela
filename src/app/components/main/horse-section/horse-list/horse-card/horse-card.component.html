@@ -3,5 +3,5 @@
     <h4 *ngIf="!hover" class="card__header">{{shortName}}</h4>
     <p *ngIf="!hover" class="card__info card__info_important">{{fullName}}</p>
     <p *ngIf="!hover" class="card__info">{{dateOfBirth | date: 'mediumDate'}}</p>
-    <p *ngIf="!hover" class="card__info">{{breed}}, {{gender === 'm'? 'Male' : 'Female'}}</p>
+    <p *ngIf="!hover" class="card__info">{{breed}}, {{gender === 'male'? 'Male' : 'Female'}}</p>
 </div>
