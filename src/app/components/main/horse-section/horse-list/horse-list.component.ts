@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Horse } from 'src/app/model/horse';
 import { HorseService } from 'src/app/services/horse.service';
 
@@ -8,9 +9,13 @@ import { HorseService } from 'src/app/services/horse.service';
   styleUrls: ['./horse-list.component.scss']
 })
 export class HorseListComponent {
-  horses: Array<Horse>;
+  horses: Observable<Horse[]>;
+  // horses: Horse[];
 
   constructor(private horseService: HorseService) {
-    this.horses = this.horseService.getHorses(); 
+    this.horses = this.horseService.getHorses();
+    // this.horseService.getHorses().subscribe(data => {
+    //   this.horses = data;
+    // })
   }
 }

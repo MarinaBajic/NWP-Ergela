@@ -16,19 +16,19 @@ export class AddHorseComponent {
   breeds = Object.values(Breed);
 
   submited: boolean;
-  valid: boolean;
+  allFieldsValid: boolean;
   message: string;
 
-  @Output() hideForm: EventEmitter<boolean>;
+  @Output() hideForm: EventEmitter<string>;
 
   constructor(private fb: FormBuilder, private horseService: HorseService) {
-    this.hideForm = new EventEmitter<boolean>();
+    this.hideForm = new EventEmitter<string>();
     this.horse = new Horse(0, 'assets/images/horse1.jpg', 0, '', '', '', Breed.Arabian);
   }
 
   ngOnInit(): void {
     this.submited = false;
-    this.valid = true;
+    this.allFieldsValid = true;
 
     this.horseForm = this.fb.group({
       shortName: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(10)]],
@@ -42,10 +42,6 @@ export class AddHorseComponent {
   addHorse(horseForm: FormGroup) {
     console.log('Horse: ', horseForm.value);
     if (horseForm.valid) {
-      this.submited = true;
-      this.valid = true;
-      this.onHideForm();
-
       this.horse = new Horse(
         0,
         'assets/images/horse1.jpg',
@@ -56,22 +52,32 @@ export class AddHorseComponent {
         horseForm.value.breed
       );
 
-      let newHorse = this.horseService.addHorse(this.horse);
+      let newHorse = this.horseService.addHorse(this.horse)
+        .subscribe({
+          next: (result: any) => {
+              this.message = result.message;
+              this.horse = new Horse(0, 'assets/images/horse1.jpg', 0, '', '', '', Breed.Arabian);
+          },
+          error: (err) => this.message = err.message
+        });
       if (newHorse) {
         this.message = 'Successfully added a new horse with id: ' + this.horse.getId();
-        this.horse = new Horse(0, 'assets/images/horse1.jpg', 0, '', '', '', Breed.Arabian);
       }
       else {
         this.message = 'Horse with id: ' + this.horse.getId() + ' already exists';
       }
+
+      this.submited = true;
+      this.allFieldsValid = true;
+      this.onHideForm();
     }
     else {
-      this.valid = false;
+      this.allFieldsValid = false;
       console.log('Horse form is in an invalid state');
     }
   }
 
   onHideForm(): void {
-    this.hideForm.emit();
+    this.hideForm.emit(this.message);
   }
 }

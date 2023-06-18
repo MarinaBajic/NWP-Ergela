@@ -1,7 +1,6 @@
-<p *ngIf="message" class="text text_dark">{{message}}</p>
 <form class="form" [formGroup]="horseForm" (ngSubmit)="addHorse(horseForm)">
     <p class="form__heading">Add a New Horse</p>
-    <p *ngIf="!valid" class="text text_error">Please fill in all fields!</p>
+    <p *ngIf="!allFieldsValid" class="text text_error">Please fill in all fields!</p>
     <div class="form__input">
         <label class="text text_dark" for="shortName">Short Name</label>
         <input id="shortName" type="text" formControlName="shortName">

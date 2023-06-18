@@ -10,5 +10,6 @@
 
     <app-horse-list></app-horse-list>
     <button class="btn btn_tertiary" (click)="onShowForm()">Add Horse</button>
-    <app-add-horse *ngIf="toggleForm" (hideForm)="onHideForm()"></app-add-horse>
+    <app-add-horse *ngIf="toggleForm" (hideForm)="onHideForm($event)"></app-add-horse>
+    <p *ngIf="messageAddHorse" class="text text_dark">{{messageAddHorse}}</p>
 </section>

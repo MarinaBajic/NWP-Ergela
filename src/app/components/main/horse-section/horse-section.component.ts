@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
 })
 export class HorseSectionComponent {
   toggleForm: boolean;
+  messageAddHorse: string;
 
   constructor() {
     this.toggleForm = false;
@@ -16,7 +17,8 @@ export class HorseSectionComponent {
     this.toggleForm = true;
   }
 
-  onHideForm() {
+  onHideForm(message: string) {
+    this.messageAddHorse = message;
     this.toggleForm = false;
   }
 }
