@@ -3,7 +3,7 @@
     <p *ngIf="!allFieldsValid" class="text text_error">Please fill in all fields!</p>
     <div class="form__input">
         <label class="text text_dark" for="shortName">Short Name</label>
-        <input id="shortName" type="text" formControlName="shortName">
+        <input id="shortName" type="text" placeholder="Short Name" formControlName="shortName">
         <ng-container
             *ngIf="horseForm.get('shortName')?.invalid && (horseForm.get('shortName')?.touched || horseForm.get('shortName')?.dirty)">
             <p *ngIf="horseForm.get('shortName')?.errors?.['required']" class="text text_error">This field is required.
@@ -16,7 +16,7 @@
     </div>
     <div class="form__input">
         <label class="text text_dark" for="fullName">Full Name</label>
-        <input id="fullName" type="text" formControlName="fullName">
+        <input id="fullName" type="text" placeholder="Full Name" formControlName="fullName">
         <ng-container
             *ngIf="horseForm.get('fullName')?.invalid && (horseForm.get('fullName')?.touched || horseForm.get('fullName')?.dirty)">
             <p *ngIf="horseForm.get('fullName')?.errors?.['required']" class="text text_error">This field is required.
@@ -56,7 +56,7 @@
     </div>
     <div class="form__buttons">
         <button class="btn btn_secondary" type="submit">Add</button>
-        <button class="btn btn_tertiary" type="reset">Cancel</button>
+        <button class="btn btn_tertiary" type="reset" (click)="onHideForm()">Cancel</button>
     </div>
     <p *ngIf="submited" class="text text_dark"> {{horseForm.value | json}}</p>
 </form>

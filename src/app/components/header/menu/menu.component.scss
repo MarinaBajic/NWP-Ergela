@@ -3,7 +3,6 @@
 .nav {
     display: flex;
     align-items: center;
-    // gap: 2rem;
 }
 
 .menu-item {
@@ -17,4 +16,8 @@
     &:hover {
         border-bottom: .3rem solid white;
     }
+}
+
+.menu-item.active {
+    color: $color-primary;
 }

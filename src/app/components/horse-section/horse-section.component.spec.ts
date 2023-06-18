@@ -1,6 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { HorseSectionComponent } from './horse-section.component';
+import { HorseSectionComponent } from '../horse-section/horse-section.component';
 
 describe('HorseSectionComponent', () => {
   let component: HorseSectionComponent;

@@ -1,17 +1,5 @@
 @use 'src/styles' as *;
 
-.hero {
-    background-image: url("../../../assets/hero.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100dvh;
-}
-
-.hero__shadow {
-    height: 100%;
-    background: linear-gradient(180deg, rgba(51, 51, 51, 0.6) 50%, rgba(51, 51, 51, 0.3) 100%);
-}
-
 .hero__heading {
     height: calc(100dvh - 10rem);
     display: flex;

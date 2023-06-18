@@ -3,20 +3,22 @@
 .header {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 3rem 0;
+    background-color: $color-text-dark;
 }
 
-.logo-wrapper {
+.logo {
     display: flex;
     gap: .5rem;
     align-items: center;
 }
 
-.logo-img {
+.logo__img {
     width: 3rem;
 }
 
-.logo-text {
+.logo__text {
     font-family: 'Cinzel', serif;
     font-size: map-get($font-size, 'logo');
     font-weight: map-get($font-weight, 'logo');
