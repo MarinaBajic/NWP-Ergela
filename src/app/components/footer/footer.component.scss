@@ -1,0 +1,14 @@
+@use 'src/styles' as *;
+
+.footer {
+    height: 15rem;
+    background-color: $color-primary;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.footer__text {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}

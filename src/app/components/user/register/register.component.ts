@@ -10,7 +10,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class RegisterComponent {
 
-  public user: User;
+  public user: User = {} as User;
   public message: string | undefined;
 
   constructor(private userService: UserService, private router: Router) { }

@@ -1,9 +1,7 @@
 <div class="card-list">
     <app-horse-card *ngFor="let horse of horses | async" [horse]="horse"></app-horse-card>
 </div>
-
-<div>
-    <button type="button" (click)="fetchHorses()">
-        Refetch Horses
-    </button>
+<div class="center">
+    <button class="btn btn_quaternary" type="button" (click)="fetchHorses()">Refetch Horses</button>
 </div>
+

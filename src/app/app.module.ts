@@ -24,6 +24,7 @@ import { UserService } from './services/user.service';
 import { UserStoreService } from './services/user-store.service';
 
 import { HorseAppInterceptor } from './services/horse-app.interceptor';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { HorseAppInterceptor } from './services/horse-app.interceptor';
     HorseCardComponent,
     AddHorseComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

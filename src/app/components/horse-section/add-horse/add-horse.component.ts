@@ -19,7 +19,6 @@ export class AddHorseComponent {
   breedValues = Object.values(Breed);
 
   submited: boolean;
-  allFieldsValid: boolean;
   message: string;
 
   @Output() hideForm: EventEmitter<string>;
@@ -43,7 +42,6 @@ export class AddHorseComponent {
 
   ngOnInit(): void {
     this.submited = false;
-    this.allFieldsValid = true;
 
     this.horseForm = this.fb.group({
       shortName: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(10)]],
@@ -83,14 +81,12 @@ export class AddHorseComponent {
         this.message = 'Horse with id: ' + this.horse.id + ' already exists';
       }
 
-      this.submited = true;
-      this.allFieldsValid = true;
       this.onHideForm();
     }
     else {
-      this.allFieldsValid = false;
       console.log('Horse form is in an invalid state');
     }
+    this.submited = true;
   }
 
   onHideForm(): void {

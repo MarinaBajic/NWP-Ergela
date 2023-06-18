@@ -71,9 +71,10 @@ $letter-spacing: (
 $color-primary: #CC9933;
 $color-secondary: #ffd700;
 $color-tertiary: #aa9e91;
+$color-dark: #333;
+$color-light: #fff;
 $color-error: #D22B2B;
-$color-text-dark: #333;
-$color-text-light: #fff;
+$color-attention: #7980BC;
 
 *,
 *::before,
@@ -89,7 +90,7 @@ $color-text-light: #fff;
     font-size: 10px;
     letter-spacing: map-get($letter-spacing, 'text');
     font-family: 'Montserrat', sans-serif;
-    color: $color-text-light;
+    color: $color-light;
     text-decoration: none;
 }
 
@@ -117,7 +118,7 @@ p {
 
 .main-container {
     margin: 0 auto;
-    width: 80%;
+    width: 75dvw;
 }
 
 .section {
@@ -125,7 +126,7 @@ p {
     flex-direction: column;
     align-items: center;
     gap: 2rem;
-    margin-top: 10rem;
+    padding: 10rem 0;
 }
 
 .btn {
@@ -148,13 +149,13 @@ p {
     border: .3rem solid $color-primary;
     
     &:hover {
-        color: $color-text-light;
+        color: $color-light;
         background-color: $color-primary;
     }
 }
 
 .btn_secondary {
-    color: $color-text-light;
+    color: $color-dark;
     background-color: $color-secondary;
     border: .3rem solid $color-secondary;
     
@@ -170,9 +171,16 @@ p {
     border: .3rem solid $color-tertiary;
 
     &:hover {
-        color: $color-text-light;
+        color: $color-light;
         background-color: $color-tertiary;
     }
+}
+
+.btn_quaternary {
+    color: $color-light;
+    background-color: transparent;
+    border-bottom: .3rem solid $color-light;
+    border-radius: 0;
 }
 
 .card {
@@ -207,25 +215,24 @@ p {
 .card__header {
     font-weight: map-get($font-weight, 'subtitle');
     font-size: 2.7rem;
-    color: $color-text-light;
+    color: $color-light;
 }
 
 .card__info {
     font-weight: map-get($font-weight, 'text');
     font-size: map-get($font-size, 'text', 'desktop');
-    color: $color-text-light;
+    color: $color-light;
 }
 
 .card__info_important {
     font-weight: map-get($font-weight, 'subtitle');
     padding-bottom: 1rem;
-    border-bottom: .1rem solid $color-text-light;
+    border-bottom: .1rem solid $color-light;
 }
 
 .heading_secondary {
     font-weight: map-get($font-weight, 'subtitle');
     font-size: map-get($font-size, 'subtitle', 'desktop');
-    color: $color-text-dark;
 }
 
 .text {
@@ -235,26 +242,32 @@ p {
 }
 
 .text_dark {
-    color: $color-text-dark;
+    color: $color-dark;
 }
 
 .text_error {
     color: $color-error;
 }
 
+.text_attention {
+    color: $color-attention;
+    font-weight: 600;
+}
+
 .form {
     min-width: 60rem;
     max-width: 120rem;
+    background-color: $color-light;
     display: flex;
     flex-direction: column;
     gap: 2.5rem;
-    border: .2rem solid $color-secondary;
+    border: .5rem solid $color-secondary;
     border-radius: .5rem;
     padding: 5rem 3rem;
 }
 
 .form__heading {
-    color: $color-text-dark;
+    color: $color-dark;
     font-size: 3rem;
     text-align: center;
 }
@@ -266,7 +279,7 @@ p {
 
     input, select, option {
         font-size: map-get($font-size, 'text', 'desktop');
-        color: $color-text-dark;
+        color: $color-dark;
         padding: 1.5rem;
         border: .2rem solid $color-tertiary;
         border-radius: .5rem;
@@ -292,6 +305,16 @@ p {
 .form__buttons {
     display: flex;
     gap: 1rem;
-    justify-content: flex-end;
+    justify-content: center;
     margin-top: 2rem;
+}
+
+.form__buttons_flex-end {
+    justify-content: flex-end;
+}
+
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

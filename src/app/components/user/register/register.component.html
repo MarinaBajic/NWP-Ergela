@@ -1,13 +1,20 @@
-<p class="text text_dark" *ngIf="message">{{message}}</p>
-<form class="form" (ngSubmit)="register()">
-    <p class="form__heading">Registration</p>
-    <div class="form__input">
-        <input class="text text_dark" type="text" placeholder="Username" required name="username" #usernameField="ngModel" [(ngModel)]="user.username">
-        <p *ngIf="usernameField.errors?.['required']">This field is required.</p>
-    </div>
-    <div class="form__input">
-        <input class="text text_dark" type="password" placeholder="Password" required name="password" #passwordField="ngModel" [(ngModel)]="user.password">
-        <p *ngIf="passwordField.errors?.['required']">This field is required.</p>
-    </div>
-    <button class="btn btn_secondary" type="submit">Register</button>
-</form>
+<div class="section">
+    <p class="text text_dark" *ngIf="message">{{message}}</p>
+    <form class="form" (ngSubmit)="register()">
+        <p class="form__heading">Registration</p>
+        <div class="form__input">
+            <label class="text text_dark" for="username">Username</label>
+            <input id="username" class="text text_dark" type="text" placeholder="Username" required name="username" #usernameField="ngModel" [(ngModel)]="user.username">
+            <p *ngIf="usernameField.errors?.['required']">This field is required.</p>
+        </div>
+        <div class="form__input">
+            <label class="text text_dark" for="password">Password</label>
+            <input id="password" class="text text_dark" type="password" placeholder="Password" required name="password" #passwordField="ngModel" [(ngModel)]="user.password">
+            <p *ngIf="passwordField.errors?.['required']">This field is required.</p>
+        </div>
+        <div class="form__buttons">
+            <button class="btn btn_secondary" type="submit">Register</button>
+        </div>
+        <p class="text text_dark">Already have an account? <a class="text text_attention" routerLink="/login">Login here</a></p>
+    </form>
+</div>
