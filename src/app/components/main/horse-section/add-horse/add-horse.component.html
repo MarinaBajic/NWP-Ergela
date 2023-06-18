@@ -36,7 +36,7 @@
     <div class="form__input">
         <label class="text text_dark" for="breed">Breed</label>
         <select name="breed" id="breed" formControlName="breed">
-            <option *ngFor="let breed of breeds" [ngValue]="breed">{{breed}}</option>
+            <option *ngFor="let breed of breedKeys" [ngValue]="breed">{{breeds[breed]}}</option>
         </select>
         <p *ngIf="horseForm.get('breed')?.invalid && (horseForm.get('breed')?.touched || horseForm.get('breed')?.dirty)"
             class="text text_error">This field is required.</p>
@@ -56,7 +56,7 @@
     </div>
     <div class="form__buttons">
         <button class="btn btn_secondary" type="submit">Add</button>
-        <button class="btn btn_tertiary" type="reset" (click)="onHideForm()">Cancel</button>
+        <button class="btn btn_tertiary" type="reset">Cancel</button>
     </div>
     <p *ngIf="submited" class="text text_dark"> {{horseForm.value | json}}</p>
 </form>

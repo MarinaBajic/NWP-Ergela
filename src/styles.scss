@@ -193,6 +193,8 @@ p {
 
 .card-list {
     display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
     gap: 3rem;
 }
 
@@ -273,15 +275,10 @@ p {
         &.ng-invalid.ng-dirty {
             border-color: $color-error;
         }
+    }
 
-        // &.ng-untouched,
-        // &.ng-pristine {
-        //     border-color: $color-tertiary;
-        // }
-
-        // &.ng-valid {
-        //     border-color: greenyellow;
-        // }
+    input[type=file] {
+        border: none;
     }
 }
 

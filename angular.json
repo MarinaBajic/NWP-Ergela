@@ -69,6 +69,10 @@
             },
             "development": {
               "browserTarget": "ergela:build:development"
+            },
+            "options": {
+              "browserTarget": "ergela:build",
+              "proxyConfig": "proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"

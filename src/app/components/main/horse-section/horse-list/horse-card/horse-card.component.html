@@ -1,7 +1,7 @@
 <div (mouseenter)="toggleHover()" (mouseleave)="toggleHover()" class="card">
-    <img *ngIf="hover" class="card__img" [src]="imageUrl" alt="">
-    <h4 *ngIf="!hover" class="card__header">{{shortName}}</h4>
-    <p *ngIf="!hover" class="card__info card__info_important">{{fullName}}</p>
-    <p *ngIf="!hover" class="card__info">{{dateOfBirth | date: 'mediumDate'}}</p>
-    <p *ngIf="!hover" class="card__info">{{breed}}, {{gender === 'male'? 'Male' : 'Female'}}</p>
+    <img *ngIf="hover" class="card__img" [src]="horse.imageUrl" alt="">
+    <h4 *ngIf="!hover" class="card__header">{{horse.shortName}}</h4>
+    <p *ngIf="!hover" class="card__info card__info_important">{{horse.fullName}}</p>
+    <p *ngIf="!hover" class="card__info">{{horse.dateOfBirth | date: 'mediumDate'}}</p>
+    <p *ngIf="!hover" class="card__info">{{horse.breed}}, {{horse.gender === 'male'? 'Male' : 'Female'}}</p>
 </div>

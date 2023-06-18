@@ -10,12 +10,8 @@ import { HorseService } from 'src/app/services/horse.service';
 })
 export class HorseListComponent {
   horses: Observable<Horse[]>;
-  // horses: Horse[];
 
   constructor(private horseService: HorseService) {
     this.horses = this.horseService.getHorses();
-    // this.horseService.getHorses().subscribe(data => {
-    //   this.horses = data;
-    // })
   }
 }
