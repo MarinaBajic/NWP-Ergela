@@ -16,12 +16,12 @@ export class RegisterComponent {
   constructor(private userService: UserService, private router: Router) { }
 
   register() {
-    this.userService.register(this.user.username, this.user.password)
+    this.userService.register(this.user)
       .subscribe({
         next: (resp) => {
           console.log('Successfully registered');
           this.message = resp.msg;
-          this.router.navigate(['horses', 'list']);
+          this.router.navigate(['login']);
         }, error: (err) => {
           console.error('Error registering', err);
           this.message = err.error.msg;

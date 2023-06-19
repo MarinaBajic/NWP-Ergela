@@ -11,5 +11,5 @@ export const authGuard: CanActivateFn = () => {
     }
     console.log('AuthGuard#canActivate not authorized to access page');
     // Redirect to the login page
-    return router.parseUrl('ergela/login');
+    return router.parseUrl('login');
 };

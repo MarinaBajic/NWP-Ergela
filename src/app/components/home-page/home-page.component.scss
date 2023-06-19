@@ -1,0 +1,38 @@
+@use 'src/styles' as *;
+
+.main {
+    background-image: url(../../../assets/bg.svg);
+}
+
+.bg {
+    background-image: url("../../../assets/hero.jpg");
+    height: 100dvh;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bg__shadow {
+    height: 100%;
+    background: linear-gradient(180deg, rgba(51, 51, 51, 0.7) 50%, rgba(51, 51, 51, 0.4) 100%);
+}
+
+.home__heading {
+    height: calc(100dvh - 10rem);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding-top: 15rem;
+}
+
+.heading_primary {
+    color: white;
+    font-size: map-get($font-size, 'title', 'desktop');
+}
+
+.home__desc {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 4rem;
+}

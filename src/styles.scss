@@ -71,10 +71,11 @@ $letter-spacing: (
 $color-primary: #CC9933;
 $color-secondary: #ffd700;
 $color-tertiary: #aa9e91;
+$color-bg: #504c3b;
 $color-dark: #333;
 $color-light: #fff;
 $color-error: #D22B2B;
-$color-attention: #7980BC;
+$color-attention: #4C55A5;
 
 *,
 *::before,
@@ -110,6 +111,13 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+}
+
+.main {
+    background-image: url(assets/bg-dark.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 p {
@@ -126,7 +134,7 @@ p {
     flex-direction: column;
     align-items: center;
     gap: 2rem;
-    padding: 10rem 0;
+    padding: 20rem 0 10rem;
 }
 
 .btn {
@@ -233,6 +241,7 @@ p {
 .heading_secondary {
     font-weight: map-get($font-weight, 'subtitle');
     font-size: map-get($font-size, 'subtitle', 'desktop');
+    text-align: center;
 }
 
 .text {
@@ -252,6 +261,18 @@ p {
 .text_attention {
     color: $color-attention;
     font-weight: 600;
+}
+
+.text-box {
+    min-width: 60rem;
+    max-width: 90rem;
+    border: .4rem solid $color-primary;
+    border-radius: .5rem;
+    padding: 6rem 10rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    background-color: $color-primary;
 }
 
 .form {

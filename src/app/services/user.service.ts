@@ -2,28 +2,33 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { UserStoreService } from './user-store.service';
 import { Observable, map } from 'rxjs';
+import { User } from '../model/user';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
+  
+  private loginUrl: string;
+  private registerUrl: string;
 
-  constructor(private http: HttpClient, private userStore: UserStoreService) { }
+  constructor(private http: HttpClient, private userStore: UserStoreService, private authService: AuthService) {
+    this.loginUrl = 'http://localhost:8080/ergela/login';
+    this.registerUrl = 'http://localhost:8080/ergela/register';
+  }
 
-  login(username: string, password: string): Observable<any> {
-    return this.http.post('/ergela/user/login', {
-      username: username,
-      password: password
-    }).pipe(map((resp: any) => {
-      this.userStore.token = resp.token;
+  login(user: User): Observable<any> {
+    return this.http.post(this.loginUrl, user)
+      .pipe(map((resp: any) => {
+        console.log("Token: " + resp.accessToken);
+        this.authService.authToken = resp.accessToken;
+        this.userStore.token = resp.accessToken;
       return resp;
     }));
   }
 
-  register(username: string, password: string): Observable<any> {
-    return this.http.post('/ergela/user/register', {
-      username: username,
-      password: password
-    });
+  register(user: User): Observable<any> {
+    return this.http.post(this.registerUrl, user);
   }
 }

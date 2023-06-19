@@ -6,5 +6,6 @@
         <p class="logo__text">Ergela</p>
     </div>
     <app-menu></app-menu>
-    <a href="/login" class="btn btn_secondary">Login</a>
+    <a *ngIf="!isUserLoggedIn()" routerLink="/login" routerLinkActive="active" class="btn btn_secondary">Login</a>
+    <a *ngIf="isUserLoggedIn()" routerLink="/login" routerLinkActive="active" class="btn btn_secondary" (click)="logoutUser()">Logout</a>
 </header>

@@ -1,6 +1,11 @@
 @use 'src/styles' as *;
 
 .header {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 75dvw;
     display: flex;
     justify-content: space-between;
     align-items: center;

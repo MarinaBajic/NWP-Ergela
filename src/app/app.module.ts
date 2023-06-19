@@ -8,9 +8,11 @@ import { AppComponent } from './app.component';
 
 import { HeaderComponent } from './components/header/header.component';
 import { MenuComponent } from './components/header/menu/menu.component';
+import { FooterComponent } from './components/footer/footer.component';
 
-import { HeroComponent } from './components/hero/hero.component';
+import { HomePageComponent } from './components/home-page/home-page.component';
 import { HorseSectionComponent } from './components/horse-section/horse-section.component';
+import { AboutUsSectionComponent } from './components/about-us-section/about-us-section.component';
 
 import { HorseListComponent } from './components/horse-section/horse-list/horse-list.component';
 import { AddHorseComponent } from './components/horse-section/add-horse/add-horse.component';
@@ -24,22 +26,21 @@ import { UserService } from './services/user.service';
 import { UserStoreService } from './services/user-store.service';
 
 import { HorseAppInterceptor } from './services/horse-app.interceptor';
-import { FooterComponent } from './components/footer/footer.component';
-
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeroComponent,
     HeaderComponent,
     MenuComponent,
+    FooterComponent,
+    HomePageComponent,
     HorseSectionComponent,
+    AboutUsSectionComponent,
     HorseListComponent,
     HorseCardComponent,
     AddHorseComponent,
     LoginComponent,
-    RegisterComponent,
-    FooterComponent
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
