@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MessageService } from 'src/app/services/message.service';
 
 @Component({
   selector: 'app-horse-section',
@@ -7,9 +8,8 @@ import { Component } from '@angular/core';
 })
 export class HorseSectionComponent {
   toggleForm: boolean;
-  messageAddHorse: string;
 
-  constructor() {
+  constructor(public messageService: MessageService) {
     this.toggleForm = false;
   }
 
@@ -17,8 +17,7 @@ export class HorseSectionComponent {
     this.toggleForm = true;
   }
 
-  onHideForm(message: string) {
-    this.messageAddHorse = message;
+  onHideForm() {
     this.toggleForm = false;
   }
 }

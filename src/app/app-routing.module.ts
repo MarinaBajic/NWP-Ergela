@@ -13,9 +13,9 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'logout', component: HomePageComponent},
   { path: 'register', component: RegisterComponent },
-  { path: 'horses', component: HorseSectionComponent, canActivate: [authGuard] },
-  { path: 'add-horse', component: AddHorseComponent, canActivate: [authGuard] },
-  // { path: 'horse/:id', component: StockDetailsComponent, canActivate: [authGuard] },
+  { path: 'horses', component: HorseSectionComponent },
+  // { path: 'add-horse', component: AddHorseComponent, canActivate: [authGuard] },
+  // { path: 'delete-horse/:shortName', component: HorseSectionComponent },
   { path: '**', redirectTo: 'ergela' }
 ];
 

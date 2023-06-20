@@ -1,9 +1,10 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpEvent, HttpResponse } from '@angular/common/http';
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Breed } from 'src/app/model/breed';
 import { Horse } from 'src/app/model/horse';
 import { HorseService } from 'src/app/services/horse.service';
+import { MessageService } from 'src/app/services/message.service';
 
 @Component({
   selector: 'app-add-horse',
@@ -19,12 +20,14 @@ export class AddHorseComponent {
   breedValues = Object.values(Breed);
 
   submited: boolean;
-  message: string;
 
-  @Output() hideForm: EventEmitter<string>;
+  @Output() hideForm: EventEmitter<void>;
 
-  constructor(private fb: FormBuilder, private horseService: HorseService, private http: HttpClient) {
-    this.hideForm = new EventEmitter<string>();
+  constructor(private fb: FormBuilder,
+              private horseService: HorseService,
+              private http: HttpClient,
+              private messageService: MessageService) {
+    this.hideForm = new EventEmitter<void>();
     this.initializeHorse();
   }
 
@@ -63,24 +66,22 @@ export class AddHorseComponent {
         dateOfBirth: horseForm.value.dateOfBirth,
         gender: horseForm.value.gender,
         breed: horseForm.value.breed,
-        imageUrl: 'assets/horse2.jpg'
+        imageUrl: 'assets/horse4.jpg'
       }
 
-      let newHorse = this.horseService.addHorse(this.horse)
+      this.horseService.addHorse(this.horse)
         .subscribe({
-          next: (result: any) => {
-            this.message = result.message;
+          next: (resp) => {
+            console.log("Success: " + resp.msg);
+            this.messageService.message = resp.msg;
             this.initializeHorse();
           },
-          error: (err) => this.message = err.message
+          error: (err: HttpErrorResponse) => {
+            this.messageService.message = err.error.msg;
+            console.log("Error " + err.error.msg);
+          }
         });
-      if (newHorse) {
-        this.message = 'Successfully added a new horse with id: ' + this.horse.id;
-      }
-      else {
-        this.message = 'Horse with id: ' + this.horse.id + ' already exists';
-      }
-
+      
       this.onHideForm();
     }
     else {
@@ -90,7 +91,6 @@ export class AddHorseComponent {
   }
 
   onHideForm(): void {
-    this.hideForm.emit(this.message);
+    this.hideForm.emit();
   }
-
 }

@@ -16,7 +16,7 @@ export class HorseAppInterceptor implements HttpInterceptor {
                 headers: req.headers.set(
                     'Authorization',
                     this.authService.authToken
-                )
+                ).append('Access-Control-Allow-Origin', '*')
             });
             console.log('Making an authorized request');
             req = authReq;
@@ -27,7 +27,6 @@ export class HorseAppInterceptor implements HttpInterceptor {
                 error: (error: HttpErrorResponse) => this.handleError(req, error)
             }));
     }
-
 
     handleResponse(req: HttpRequest<any>, event: HttpEvent<any>) {
         console.log('Handling response for ', req.url, event);

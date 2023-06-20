@@ -26,6 +26,7 @@ import { UserService } from './services/user.service';
 import { UserStoreService } from './services/user-store.service';
 
 import { HorseAppInterceptor } from './services/horse-app.interceptor';
+import { MessageService } from './services/message.service';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { HorseAppInterceptor } from './services/horse-app.interceptor';
       multi: true
     },
     UserService,
-    UserStoreService
+    UserStoreService,
+    MessageService
   ],
   bootstrap: [AppComponent]
 })

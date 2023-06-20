@@ -4,4 +4,7 @@
     <p *ngIf="!hover" class="card__info card__info_important">{{horse.fullName}}</p>
     <p *ngIf="!hover" class="card__info">{{horse.dateOfBirth | date: 'mediumDate'}}</p>
     <p *ngIf="!hover" class="card__info">{{horse.breed}}, {{horse.gender === 'male'? 'Male' : 'Female'}}</p>
+    <!-- <div *ngIf="hover" class="btn__delete-card-wrapper">
+        <button class="btn btn__delete-card btn_quaternary" (click)="deleteHorse(horse.shortName)">Delete</button>
+    </div> -->
 </div>
