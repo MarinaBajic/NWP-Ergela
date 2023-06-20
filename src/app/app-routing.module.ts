@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'logout', component: HomePageComponent},
   { path: 'register', component: RegisterComponent },
-  { path: 'horses', component: HorseSectionComponent },
+  { path: 'horses', component: HorseSectionComponent, canActivate: [authGuard] },
   // { path: 'add-horse', component: AddHorseComponent, canActivate: [authGuard] },
   // { path: 'delete-horse/:shortName', component: HorseSectionComponent },
   { path: '**', redirectTo: 'ergela' }
